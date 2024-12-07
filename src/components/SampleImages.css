@@ -1,32 +1,68 @@
-/* src/styles/SampleImages.css */
-.sample-images {
-    margin: 20px;
-    text-align: center;
+/* Result Container */
+.result {
+  text-align: center;
+  margin: 30px auto; /* Combine margin-top and centering */
+  padding: 30px; /* Spacious padding for desktop */
+  background-color: #fefefe; /* Soft white background */
+  border: 1px solid #e0e0e0; /* Light border for subtle styling */
+  border-radius: 15px; /* Smooth rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for clean depth */
+  width: 80%; /* Constrain width for readability */
+  max-width: 600px; /* Cap the maximum width */
+}
+
+/* Result Title */
+.result h2 {
+  font-size: 2rem; /* Emphasize the title */
+  font-weight: 700; /* Bold for prominence */
+  color: #333; /* Dark gray for better readability */
+  margin-bottom: 15px; /* Add space below the title */
+  font-family: 'Roboto', sans-serif; /* Consistent modern font */
+  letter-spacing: 0.5px; /* Improve spacing for a cleaner look */
+}
+
+/* Result Text */
+.result p {
+  font-size: 1.2rem; /* Readable text size */
+  color: #555; /* Slightly darker text for contrast */
+  line-height: 1.6; /* Maintain readability with line spacing */
+  margin: 0; /* Reset unnecessary default margins */
+  font-family: 'Roboto', sans-serif; /* Consistent typography */
+  letter-spacing: 0.3px; /* Subtle spacing for elegance */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+  .result {
+    padding: 20px; /* Compact padding for tablets */
+    width: 90%; /* Allow more width on smaller screens */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for smaller devices */
   }
-  
-  .sample-images h3 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 10px;
+
+  .result h2 {
+    font-size: 1.8rem; /* Scale title size for smaller screens */
   }
-  
-  .sample-images .images {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+
+  .result p {
+    font-size: 1.1rem; /* Adjust text size */
   }
-  
-  .sample-images img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+  .result {
+    padding: 15px; /* More compact padding for mobile */
+    width: 95%; /* Maximize the width for mobile devices */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow for small screens */
   }
-  
-  .sample-images img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  .result h2 {
+    font-size: 1.5rem; /* Further reduce title size */
   }
-  
+
+  .result p {
+    font-size: 1rem; /* Compact text for readability */
+  }
+}

@@ -1,12 +1,77 @@
-/* src/App.css */
+/* Global Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .app {
+    font-family: 'Roboto', Arial, sans-serif; /* Modern font family */
+    background-color: #f7f7f7; /* Neutral background */
+    color: #333; /* Standard text color */
+    line-height: 1.6; /* Improved text readability */
+    -webkit-font-smoothing: antialiased; /* Smooth font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.app {
     text-align: center;
-  }
-  
+    min-height: 100vh; /* Full-height container */
+    display: flex; /* Flex for layout control */
+    flex-direction: column; /* Vertical alignment */
+    justify-content: space-between; /* Even distribution of elements */
+}
+
+/* Default Link Styles */
+a {
+    color: #4a90e2; /* Figma-inspired primary color */
+    text-decoration: none; /* Remove underline for a clean look */
+    font-weight: 500; /* Medium weight for readability */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover */
+}
+
+a:hover {
+    color: #1e70bf; /* Darker blue for hover effect */
+    text-decoration: underline; /* Underline on hover for accessibility */
+}
+
+/* Utility Classes (Optional) */
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem; /* Reduce base font size slightly */
+    }
+
+    .app {
+        padding: 15px; /* Add padding for better alignment */
+    }
+
+    a {
+        font-size: 0.95rem; /* Adjust link size */
+    }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.85rem; /* Smaller font size for mobile */
+    }
+
+    .app {
+        padding: 10px; /* Compact padding for mobile */
+    }
+
+    a {
+        font-size: 0.85rem; /* Adjust link size */
+    }
+}
