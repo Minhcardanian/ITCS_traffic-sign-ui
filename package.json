@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d build"
   },
   "keywords": ["React", "Traffic Signs", "Classification", "Leaflet"],
-  "author": "Bui Van Dung",
+  "author": "Bui Quang Minh",
   "license": "ISC",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
