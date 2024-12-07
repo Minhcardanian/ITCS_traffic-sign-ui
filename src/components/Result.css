@@ -1,0 +1,20 @@
+/* src/styles/Result.css */
+.result {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+  }
+  
+  .result h2 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .result p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
