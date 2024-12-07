@@ -1,0 +1,64 @@
+/* Main upload area container */
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #4a90e2; /* Dashed border for drag-and-drop */
+  border-radius: 12px; /* Smooth rounded corners */
+  padding: 30px; /* Inner spacing */
+  margin: 25px auto; /* Outer spacing, centralized */
+  background-color: #fafafa; /* Neutral light background */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth animations */
+  width: 80%; /* Limit width for responsiveness */
+  max-width: 600px; /* Constrain maximum width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect for the upload area */
+.upload-area:hover {
+  background-color: #eaf4fc; /* Softer blue hover effect */
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for hover */
+}
+
+/* Text inside the upload area */
+.upload-area p {
+  font-size: 1.1rem; /* Readable font size */
+  color: #4a90e2; /* Text color matching border */
+  margin: 0; /* No margin for clean layout */
+  text-align: center; /* Center-align text */
+  line-height: 1.5; /* Improved spacing between lines */
+  font-family: 'Roboto', sans-serif; /* Consistent font */
+  letter-spacing: 0.3px; /* Slight letter spacing for cleaner text */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+  .upload-area {
+    padding: 20px; /* Compact padding for smaller screens */
+    margin: 20px auto; /* Adjust outer spacing */
+    width: 85%; /* Adjust width for better alignment */
+  }
+
+  .upload-area p {
+    font-size: 1rem; /* Adjust font size */
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+  .upload-area {
+    padding: 15px; /* Compact padding for mobile */
+    margin: 15px auto; /* Adjust spacing */
+    border-width: 1.5px; /* Thinner border for smaller devices */
+    width: 90%; /* Expand width for mobile screens */
+  }
+
+  .upload-area p {
+    font-size: 0.9rem; /* Smaller text for mobile */
+  }
+}

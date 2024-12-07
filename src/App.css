@@ -1,0 +1,92 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif; /* Modern font family */
+    background-color: #f7f7f7; /* Neutral background */
+    color: #333; /* Standard text color */
+    line-height: 1.6; /* Improved text readability */
+    -webkit-font-smoothing: antialiased; /* Smooth font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.app {
+    position: relative; /* Ensure the map and content are layered */
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Content Overlay */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the map */
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    max-width: 800px; /* Constrain content width */
+    width: 90%; /* Adjust for responsiveness */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Enhanced shadow for modern look */
+    text-align: center; /* Center-align text */
+    margin: 20px auto; /* Add vertical spacing */
+}
+
+/* Default Link Styles */
+a {
+    color: #4a90e2; /* Figma-inspired primary color */
+    text-decoration: none; /* Remove underline for a clean look */
+    font-weight: 500; /* Medium weight for readability */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover */
+}
+
+a:hover {
+    color: #1e70bf; /* Darker blue for hover effect */
+    text-decoration: underline; /* Underline on hover for accessibility */
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem; /* Reduce base font size slightly */
+    }
+
+    .content {
+        width: 90%; /* Adjust width for tablets */
+        padding: 20px; /* Add consistent padding */
+    }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.85rem; /* Smaller font size for mobile */
+    }
+
+    .content {
+        padding: 15px; /* Compact padding for mobile */
+        width: 95%; /* Expand width for mobile screens */
+        border-radius: 16px; /* Enhance roundness for mobile */
+    }
+
+    a {
+        font-size: 0.85rem; /* Adjust link size */
+    }
+}

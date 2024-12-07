@@ -1,0 +1,57 @@
+/* Preview Container */
+.preview {
+  text-align: center;
+  margin-top: 30px; /* Slightly increased spacing for better layout */
+  padding: 15px; /* Added padding for improved alignment */
+}
+
+/* Preview Image */
+.preview img {
+  max-width: 85%; /* Reduce width slightly for better balance */
+  max-height: 280px; /* Adjusted height for better proportions */
+  border-radius: 15px; /* Larger rounding for modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished appearance */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  object-fit: cover; /* Ensure image maintains aspect ratio */
+}
+
+/* Hover Effect */
+.preview img:hover {
+  transform: scale(1.07); /* Slightly stronger zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+}
+
+/* Caption (Optional) */
+.preview p {
+  margin-top: 15px; /* Add more spacing between image and caption */
+  font-size: 1.1rem; /* Slightly larger font for readability */
+  color: #555; /* Slightly darker gray for contrast */
+  line-height: 1.4; /* Improve readability */
+  font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+  .preview img {
+    max-height: 240px; /* Adjust height for tablets */
+    max-width: 90%; /* Expand width slightly */
+  }
+
+  .preview p {
+    font-size: 1rem; /* Adjust caption size */
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+  .preview img {
+    max-height: 200px; /* Reduce max height for smaller screens */
+    max-width: 95%; /* Use more width on smaller screens */
+  }
+
+  .preview p {
+    font-size: 0.9rem; /* Compact caption for mobile */
+  }
+}

@@ -1,0 +1,68 @@
+/* Result Container */
+.result {
+  text-align: center;
+  margin-top: 30px; /* Increased spacing for balance */
+  padding: 30px; /* Slightly increased padding for better layout */
+  background-color: #fefefe; /* Softer white for a clean look */
+  border: 1px solid #e0e0e0; /* Subtle border for modern aesthetics */
+  border-radius: 15px; /* Slightly larger rounding for contemporary style */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  width: 80%; /* Constrain width for readability */
+  max-width: 600px; /* Maintain max width on large screens */
+  margin-left: auto;
+  margin-right: auto; /* Center the container */
+}
+
+/* Result Title */
+.result h2 {
+  font-size: 2rem; /* Larger font for more prominence */
+  font-weight: 700; /* Stronger emphasis on title */
+  color: #333; /* Consistent dark text */
+  margin-bottom: 15px; /* Increased spacing below title */
+  font-family: 'Roboto', sans-serif; /* Clean font */
+  letter-spacing: 0.5px; /* Slight spacing for readability */
+}
+
+/* Result Text */
+.result p {
+  font-size: 1.2rem; /* Increased font size for better readability */
+  color: #555; /* Slightly darker gray for improved contrast */
+  line-height: 1.6; /* Maintain good readability */
+  margin: 0; /* Avoid extra margins */
+  font-family: 'Roboto', sans-serif; /* Consistent typography */
+  letter-spacing: 0.3px; /* Slight spacing for cleaner look */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+  .result {
+    padding: 20px; /* Reduce padding for smaller screens */
+    width: 90%; /* Allow more width on tablets */
+  }
+
+  .result h2 {
+    font-size: 1.8rem; /* Adjust title size for tablets */
+  }
+
+  .result p {
+    font-size: 1.1rem; /* Scale text size appropriately */
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+  .result {
+    padding: 15px; /* Compact padding for mobile devices */
+    width: 95%; /* Maximize width for small screens */
+  }
+
+  .result h2 {
+    font-size: 1.5rem; /* Further reduce title size for smaller screens */
+  }
+
+  .result p {
+    font-size: 1rem; /* Compact text for readability on small screens */
+  }
+}
