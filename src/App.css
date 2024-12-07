@@ -11,11 +11,27 @@ body {
 
 /* App Container */
 .app {
-    text-align: center;
-    min-height: 100vh; /* Full-height container */
-    display: flex; /* Flex for layout control */
-    flex-direction: column; /* Vertical alignment */
-    justify-content: space-between; /* Even distribution of elements */
+    position: relative; /* Ensure the map and content are layered */
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Content Overlay */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the map */
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    max-width: 800px; /* Constrain content width */
+    width: 90%; /* Adjust for responsiveness */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Enhanced shadow for modern look */
+    text-align: center; /* Center-align text */
+    margin: 20px auto; /* Add vertical spacing */
 }
 
 /* Default Link Styles */
@@ -31,7 +47,7 @@ a:hover {
     text-decoration: underline; /* Underline on hover for accessibility */
 }
 
-/* Utility Classes (Optional) */
+/* Utility Classes */
 .text-center {
     text-align: center;
 }
@@ -52,12 +68,9 @@ a:hover {
         font-size: 0.95rem; /* Reduce base font size slightly */
     }
 
-    .app {
-        padding: 15px; /* Add padding for better alignment */
-    }
-
-    a {
-        font-size: 0.95rem; /* Adjust link size */
+    .content {
+        width: 90%; /* Adjust width for tablets */
+        padding: 20px; /* Add consistent padding */
     }
 }
 
@@ -67,8 +80,10 @@ a:hover {
         font-size: 0.85rem; /* Smaller font size for mobile */
     }
 
-    .app {
-        padding: 10px; /* Compact padding for mobile */
+    .content {
+        padding: 15px; /* Compact padding for mobile */
+        width: 95%; /* Expand width for mobile screens */
+        border-radius: 16px; /* Enhance roundness for mobile */
     }
 
     a {

@@ -1,13 +1,18 @@
 // src/components/Footer.js
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
-      <p>© 2024 Traffic Sign Classification. All rights reserved.</p>
+      <p>
+        &copy; {new Date().getFullYear()} Traffic Sign Classification.{" "}
+        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+          Learn More
+        </a>
+      </p>
     </footer>
   );
-}
+};
 
 export default Footer;

@@ -1,35 +1,46 @@
-/* General Footer Styles */
+/* src/styles/Footer.css */
+
+/* Footer Container */
 .footer {
-  text-align: center;
-  padding: 15px 10px; /* Slight padding adjustment for horizontal balance */
-  background-color: #222; /* Slightly darker background for better contrast */
-  color: #ddd; /* Softer white for a modern look */
-  position: fixed; /* Keeps footer at the bottom */
-  bottom: 0;
-  width: 100%; /* Full width across the screen */
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  z-index: 1000; /* Ensures the footer stays on top */
+  text-align: center; /* Center-align all content */
+  padding: 10px 5px; /* Compact padding for a sleek look */
+  background-color: #222; /* Darker background for contrast */
+  color: #ddd; /* Softer white for better readability */
+  width: 100%; /* Full width across the viewport */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow above footer */
+  font-size: 0.85rem; /* Balanced font size */
+  font-family: 'Roboto', sans-serif; /* Modern, clean font */
+  position: relative; /* Keeps footer positioned at the bottom */
+  z-index: 1000; /* Ensures footer is above other elements */
+}
+
+/* Footer Content Alignment */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Align items vertically for small content */
 }
 
 /* Footer Text */
 .footer p {
-  margin: 0;
-  font-size: 0.95rem; /* Slightly smaller for a sleek look */
-  font-family: 'Roboto', sans-serif; /* Modern font choice */
-  letter-spacing: 0.4px; /* Subtle spacing for readability */
+  margin: 0; /* Reset default margins */
+  font-size: 0.85rem; /* Slightly smaller text size */
+  letter-spacing: 0.3px; /* Subtle spacing for readability */
+  line-height: 1.5; /* Improve text spacing */
 }
 
-/* Links Inside Footer */
+/* Footer Links */
 .footer a {
-  color: #4a90e2; /* Matches primary color scheme */
-  text-decoration: none; /* No underline for cleaner design */
-  font-weight: 500; /* Medium weight for better balance */
-  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover */
+  color: #4a90e2; /* Match the primary blue color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Medium font weight for balance */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transitions */
 }
 
 .footer a:hover {
-  color: #1e70bf; /* Slightly darker blue for hover */
-  text-decoration: underline; /* Add underline on hover for better UX */
+  color: #1e70bf; /* Darker blue for hover effect */
+  text-decoration: underline; /* Underline on hover for better UX */
 }
 
 /* Responsive Design */
@@ -37,23 +48,22 @@
 /* Medium-sized devices (tablets) */
 @media (max-width: 768px) {
   .footer {
-    padding: 12px 8px; /* Reduce padding for smaller devices */
-    font-size: 0.9rem; /* Adjust font size */
+    padding: 8px 5px; /* Compact padding for tablets */
   }
 
   .footer p {
-    font-size: 0.85rem; /* Slightly smaller text */
+    font-size: 0.8rem; /* Slightly smaller text */
   }
 }
 
 /* Small devices (mobile phones) */
 @media (max-width: 480px) {
   .footer {
-    padding: 10px 6px; /* Compact padding */
-    font-size: 0.85rem; /* Smaller overall text size */
+    padding: 6px 4px; /* Even smaller padding for mobile */
+    font-size: 0.75rem; /* Compact font size */
   }
 
   .footer p {
-    font-size: 0.8rem; /* Compact text for mobile */
+    font-size: 0.7rem; /* Reduce text size further */
   }
 }

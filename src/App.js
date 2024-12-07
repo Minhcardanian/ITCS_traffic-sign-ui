@@ -6,24 +6,33 @@ import Preview from './components/Preview';
 import Result from './components/Result';
 import SampleImages from './components/SampleImages';
 import Footer from './components/Footer';
+import BackgroundMap from './components/BackgroundMap';
 import './App.css';
 
 function App() {
-  // State management for file and result
+  // State management for uploaded file and result
   const [file, setFile] = useState(null);
   const [result, setResult] = useState('');
 
   // Handle file upload
   const handleUpload = (uploadedFile) => {
+    if (!uploadedFile) {
+      console.error('No file uploaded.');
+      return;
+    }
     console.log('File uploaded:', uploadedFile);
     setFile(uploadedFile);
 
-    // Simulate a result after processing (API call can replace this)
+    // Simulate processing result (API integration can replace this)
     setTimeout(() => setResult('Crossroad Warning Sign'), 2000);
   };
 
   // Handle sample image selection
   const handleSampleSelect = (src) => {
+    if (!src) {
+      console.error('No sample selected.');
+      return;
+    }
     console.log('Sample image selected:', src);
     setFile(src);
     setResult('Example result for selected sample');
@@ -31,23 +40,29 @@ function App() {
 
   return (
     <div className="app">
-      {/* Header Section */}
-      <Header />
+      {/* Map Background */}
+      <BackgroundMap />
 
-      {/* Upload Area */}
-      <UploadArea onUpload={handleUpload} />
+      {/* Main Content */}
+      <div className="content">
+        {/* Header Section */}
+        <Header />
 
-      {/* Sample Images for Testing */}
-      <SampleImages onSelectSample={handleSampleSelect} />
+        {/* Upload Area */}
+        <UploadArea onUpload={handleUpload} />
 
-      {/* Preview Uploaded File */}
-      {file && <Preview file={file} />}
+        {/* Sample Images for Testing */}
+        <SampleImages onSelectSample={handleSampleSelect} />
 
-      {/* Display Classification Result */}
-      {result && <Result result={result} />}
+        {/* Preview Uploaded File */}
+        {file && <Preview file={file} />}
 
-      {/* Footer Section */}
-      <Footer />
+        {/* Display Classification Result */}
+        {result && <Result result={result} />}
+
+        {/* Footer Section */}
+        <Footer />
+      </div>
     </div>
   );
 }

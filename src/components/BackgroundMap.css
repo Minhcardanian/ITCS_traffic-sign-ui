@@ -1,0 +1,28 @@
+/* src/components/BackgroundMap.css */
+
+/* Map Container Styling */
+.background-map {
+    height: 100vh; /* Ensure it fills the full screen height */
+    width: 100vw; /* Ensure it fills the full screen width */
+    filter: blur(10px); /* Apply a blur effect for background focus */
+    position: fixed; /* Fix position relative to the viewport */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Push the map behind all other content */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+    .background-map {
+        filter: blur(8px); /* Slightly reduce blur on smaller screens */
+    }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+    .background-map {
+        filter: blur(6px); /* Reduce blur for very small screens */
+    }
+}
