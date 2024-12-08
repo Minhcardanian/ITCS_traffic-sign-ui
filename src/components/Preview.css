@@ -5,6 +5,14 @@
   padding: 15px; /* Added padding for improved alignment */
 }
 
+/* Preview Title */
+.preview h3 {
+  font-size: 1.5rem; /* Title font size */
+  color: #333; /* Title color */
+  margin-bottom: 15px; /* Spacing below title */
+  font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
 /* Preview Image */
 .preview img {
   max-width: 85%; /* Reduce width slightly for better balance */
@@ -21,15 +29,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
 }
 
-/* Caption (Optional) */
-.preview p {
-  margin-top: 15px; /* Add more spacing between image and caption */
-  font-size: 1.1rem; /* Slightly larger font for readability */
-  color: #555; /* Slightly darker gray for contrast */
-  line-height: 1.4; /* Improve readability */
-  font-family: 'Roboto', sans-serif; /* Consistent font */
-}
-
 /* Responsive Design */
 
 /* Medium-sized devices (tablets) */
@@ -39,8 +38,8 @@
     max-width: 90%; /* Expand width slightly */
   }
 
-  .preview p {
-    font-size: 1rem; /* Adjust caption size */
+  .preview h3 {
+    font-size: 1.3rem; /* Adjust title size */
   }
 }
 
@@ -51,7 +50,7 @@
     max-width: 95%; /* Use more width on smaller screens */
   }
 
-  .preview p {
-    font-size: 0.9rem; /* Compact caption for mobile */
+  .preview h3 {
+    font-size: 1.2rem; /* Compact title for mobile */
   }
 }
