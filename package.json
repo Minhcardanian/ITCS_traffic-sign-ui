@@ -4,7 +4,7 @@
   "private": true,
   "description": "Traffic Sign Classification UI built with React",
   "main": "index.js",
-  "homepage": ".",
+  "homepage": "https://itcs-traffic-sign.netlify.app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
