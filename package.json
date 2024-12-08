@@ -4,17 +4,15 @@
   "private": true,
   "description": "Traffic Sign Classification UI built with React",
   "main": "index.js",
-  "homepage": "https://Minhcardanian.github.io/ITCS_traffic-sign-ui",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "keywords": ["React", "Traffic Signs", "Classification", "Leaflet"],
-  "author": "Bui Van Dung",
+  "author": "Bui Quang Minh",
   "license": "ISC",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -29,8 +27,7 @@
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.2.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "browserslist": {
     "production": [
