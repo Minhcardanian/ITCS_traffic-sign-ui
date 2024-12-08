@@ -47,6 +47,81 @@ a:hover {
     text-decoration: underline; /* Underline on hover for accessibility */
 }
 
+/* Dropdown Info */
+.dropdown-info {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.dropdown-toggle {
+    background: rgba(0, 123, 255, 0.3); /* Transparent blue background */
+    color: white;
+    border: 2px solid rgba(0, 123, 255, 0.7); /* Blue border */
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    backdrop-filter: blur(5px); /* Subtle blur effect */
+}
+
+.dropdown-toggle:hover {
+    background: rgba(0, 123, 255, 0.5); /* Darker transparent blue */
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+    margin-top: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    text-align: left;
+    animation: fadeIn 0.3s ease;
+    width: 250px;
+}
+
+.dropdown-content p {
+    margin: 5px 0;
+}
+
+.dropdown-content ul {
+    padding-left: 20px; /* Add spacing for bullets */
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Utility Classes */
 .text-center {
     text-align: center;
@@ -60,6 +135,60 @@ a:hover {
     display: none;
 }
 
+/* Click Effect */
+.click-effect {
+    position: fixed; /* Ensure it's fixed relative to the viewport */
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    animation: click-animation 0.4s ease-out;
+    pointer-events: none; /* Prevent interaction */
+    z-index: 1000; /* Ensure it appears above all elements */
+}
+
+@keyframes click-animation {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Night Mode Styles */
+body.night-mode {
+    background-color: #121212; /* Dark background */
+    color: #f1f1f1; /* Light text color */
+}
+
+body.night-mode .content {
+    background: rgba(30, 30, 30, 0.95); /* Dark overlay for content */
+    color: #f1f1f1;
+}
+
+body.night-mode a {
+    color: #80b3ff; /* Light blue links */
+}
+
+body.night-mode a:hover {
+    color: #cce7ff; /* Lighter hover color */
+}
+
+body.night-mode .dropdown-toggle {
+    background: rgba(255, 255, 255, 0.2); /* Light transparent button */
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+body.night-mode .dropdown-content {
+    background: rgba(30, 30, 30, 0.95); /* Dark dropdown background */
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Responsive Design */
 
 /* Medium-sized devices (tablets) */
@@ -71,6 +200,10 @@ a:hover {
     .content {
         width: 90%; /* Adjust width for tablets */
         padding: 20px; /* Add consistent padding */
+    }
+
+    .dropdown-content {
+        width: 200px; /* Adjust width for tablets */
     }
 }
 
@@ -88,5 +221,9 @@ a:hover {
 
     a {
         font-size: 0.85rem; /* Adjust link size */
+    }
+
+    .dropdown-content {
+        width: 180px; /* Adjust width for mobile */
     }
 }

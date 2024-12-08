@@ -1,0 +1,19 @@
+.night-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 123, 255, 0.7); /* Transparent blue */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.night-mode-toggle:hover {
+    background: rgba(0, 123, 255, 1); /* Fully opaque blue */
+    transform: scale(1.05);
+}
