@@ -11,8 +11,47 @@
         integrity="sha512-xodZBNTC5n17Xt2R0UbPOmT5E2XtNIBbNqdIRXV4WXHXT9mZbxlnYs+Jm2Bxos4GVvK5f1Dh6ZfSfkuY5THfRw=="
         crossorigin="anonymous"
     />
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .click-effect {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            animation: click-animation 0.4s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes click-animation {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
+    <script>
+        document.addEventListener("click", function (e) {
+            const effect = document.createElement("div");
+            effect.className = "click-effect";
+            effect.style.left = `${e.pageX - 10}px`;
+            effect.style.top = `${e.pageY - 10}px`;
+            document.body.appendChild(effect);
+            setTimeout(() => {
+                effect.remove();
+            }, 400);
+        });
+    </script>
 </body>
 </html>
