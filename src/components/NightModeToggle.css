@@ -1,19 +1,47 @@
+/* Night Mode Toggle Button */
 .night-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 123, 255, 0.7); /* Transparent blue */
+    background: rgba(72, 85, 99, 0.8); /* Darker transparent background */
     color: white;
-    border: none;
-    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border for contrast */
+    border-radius: 25px; /* Fully rounded button */
     padding: 10px 20px;
     cursor: pointer;
     font-size: 0.9rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Depth for the button */
+    transition: background-color 0.3s ease, transform 0.2s ease, border 0.3s ease;
+    width: 100%; /* Match width for alignment within the group */
+    text-align: center; /* Ensure text is centered */
 }
 
+/* Hover Effect */
 .night-mode-toggle:hover {
-    background: rgba(0, 123, 255, 1); /* Fully opaque blue */
-    transform: scale(1.05);
+    background: rgba(72, 85, 99, 1); /* Fully opaque background */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* More visible border */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Active State for Night Mode */
+.night-mode-toggle.active {
+    background: rgba(38, 38, 38, 0.9); /* Darker background for active state */
+    border-color: rgba(255, 255, 255, 0.7); /* More pronounced border */
+    color: #e4e4e4; /* Softer text color for night mode */
+}
+
+/* Responsive Design */
+
+/* Medium-sized devices (tablets) */
+@media (max-width: 768px) {
+    .night-mode-toggle {
+        padding: 8px 15px; /* Compact padding for smaller screens */
+        font-size: 0.8rem; /* Slightly smaller text */
+    }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+    .night-mode-toggle {
+        padding: 6px 10px; /* Further compact for mobile */
+        font-size: 0.75rem;
+    }
 }

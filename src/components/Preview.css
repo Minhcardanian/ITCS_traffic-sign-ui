@@ -1,32 +1,32 @@
 /* Preview Container */
 .preview {
   text-align: center;
-  margin-top: 30px; /* Slightly increased spacing for better layout */
-  padding: 15px; /* Added padding for improved alignment */
+  margin-top: 30px;
+  padding: 15px;
 }
 
 /* Preview Title */
 .preview h3 {
-  font-size: 1.5rem; /* Title font size */
-  color: #333; /* Title color */
-  margin-bottom: 15px; /* Spacing below title */
-  font-family: 'Roboto', sans-serif; /* Consistent font */
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Preview Image */
 .preview img {
-  max-width: 85%; /* Reduce width slightly for better balance */
-  max-height: 280px; /* Adjusted height for better proportions */
-  border-radius: 15px; /* Larger rounding for modern look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished appearance */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
-  object-fit: cover; /* Ensure image maintains aspect ratio */
+  max-width: 85%;
+  max-height: 280px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
 }
 
 /* Hover Effect */
 .preview img:hover {
-  transform: scale(1.07); /* Slightly stronger zoom effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+  transform: scale(1.07);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */
@@ -34,23 +34,23 @@
 /* Medium-sized devices (tablets) */
 @media (max-width: 768px) {
   .preview img {
-    max-height: 240px; /* Adjust height for tablets */
-    max-width: 90%; /* Expand width slightly */
+    max-height: 240px;
+    max-width: 90%;
   }
 
   .preview h3 {
-    font-size: 1.3rem; /* Adjust title size */
+    font-size: 1.3rem;
   }
 }
 
 /* Small devices (mobile phones) */
 @media (max-width: 480px) {
   .preview img {
-    max-height: 200px; /* Reduce max height for smaller screens */
-    max-width: 95%; /* Use more width on smaller screens */
+    max-height: 200px;
+    max-width: 95%;
   }
 
   .preview h3 {
-    font-size: 1.2rem; /* Compact title for mobile */
+    font-size: 1.1rem;
   }
 }

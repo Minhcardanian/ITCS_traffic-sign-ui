@@ -1,59 +1,74 @@
-.dropdown-info {
+/* Container */
+.dropdown-info-container {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     z-index: 1000;
-}
-
-.dropdown-toggle {
+  }
+  
+  /* Info Box (Question Mark) */
+  .info-box {
+    width: 50px;
+    height: 50px;
     background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 0.9rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-toggle:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .info-box:hover {
     background-color: #0056b3;
-}
-
-.dropdown-content {
+    transform: scale(1.1);
+  }
+  
+  /* Dropdown Content */
+  .info-dropdown {
     margin-top: 10px;
-    padding: 10px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 0.85rem;
-    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     animation: fadeIn 0.3s ease;
-}
-
-.dropdown-content p {
-    margin: 5px 0;
-}
-
-.dropdown-content a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.dropdown-content a:hover {
-    text-decoration: underline;
-}
-
-@keyframes fadeIn {
+  }
+  
+  /* Buttons Inside Dropdown */
+  .info-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .info-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
+  }
+  

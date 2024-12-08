@@ -1,0 +1,65 @@
+.info-group {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; /* Space between items */
+}
+
+.info-group .question-mark {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.info-group .question-mark:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.info-group .info-buttons {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.info-group.show .info-buttons {
+    display: flex; /* Show when group is active */
+}
+
+.info-group .info-buttons button {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.info-group .info-buttons button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

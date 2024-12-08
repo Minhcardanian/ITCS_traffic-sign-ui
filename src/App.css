@@ -1,116 +1,182 @@
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: 'Roboto', Arial, sans-serif; /* Modern font family */
-    background-color: #f7f7f7; /* Neutral background */
-    color: #333; /* Standard text color */
-    line-height: 1.6; /* Improved text readability */
-    -webkit-font-smoothing: antialiased; /* Smooth font rendering */
-    -moz-osx-font-smoothing: grayscale;
+/* Main Layout */
+.main-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* App Container */
-.app {
-    position: relative; /* Ensure the map and content are layered */
-    min-height: 100vh; /* Full screen height */
+/* Upload Section */
+.upload-section {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    overflow: hidden; /* Prevent content overflow */
-}
-
-/* Content Overlay */
-.content {
+    gap: 20px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* White transparent background */
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     position: relative;
-    z-index: 1; /* Ensure content is above the map */
-    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
-    border-radius: 12px; /* Rounded corners */
-    padding: 20px; /* Inner spacing */
-    max-width: 800px; /* Constrain content width */
-    width: 90%; /* Adjust for responsiveness */
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Enhanced shadow for modern look */
-    text-align: center; /* Center-align text */
-    margin: 20px auto; /* Add vertical spacing */
 }
 
-/* Default Link Styles */
-a {
-    color: #4a90e2; /* Figma-inspired primary color */
-    text-decoration: none; /* Remove underline for a clean look */
-    font-weight: 500; /* Medium weight for readability */
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover */
+/* Default Label for Upload */
+.upload-section::before {
+    content: "Upload";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #555;
+    opacity: 0.8;
 }
 
-a:hover {
-    color: #1e70bf; /* Darker blue for hover effect */
-    text-decoration: underline; /* Underline on hover for accessibility */
+/* Result Section */
+.result-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(144, 238, 144, 0.8); /* Green transparent background */
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-height: 300px;
+    position: relative;
 }
 
-/* Dropdown Info */
-.dropdown-info {
+/* Default Label for Result */
+.result-section::before {
+    content: "Result";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #555;
+    opacity: 0.8;
+}
+
+/* Send Button */
+.send-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #1e70bf;
+}
+
+/* Info Group (Dropdown and Night Mode Group) */
+.info-group {
     position: fixed;
     top: 10px;
     right: 10px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.dropdown-toggle {
-    background: rgba(0, 123, 255, 0.3); /* Transparent blue background */
+/* Question Mark Button */
+.info-group .question-mark {
+    background-color: #007bff;
     color: white;
-    border: 2px solid rgba(0, 123, 255, 0.7); /* Blue border */
-    border-radius: 5px;
-    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 0.9rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    backdrop-filter: blur(5px); /* Subtle blur effect */
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.dropdown-toggle:hover {
-    background: rgba(0, 123, 255, 0.5); /* Darker transparent blue */
-    transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+.info-group .question-mark:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
 }
 
-.dropdown-content {
+/* Info Buttons Container */
+.info-group .info-buttons {
     margin-top: 10px;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 0.85rem;
-    text-align: left;
+    padding: 10px;
     animation: fadeIn 0.3s ease;
-    width: 250px;
 }
 
-.dropdown-content p {
-    margin: 5px 0;
+/* Buttons in Expanded State */
+.info-group .info-buttons .dropdown-toggle,
+.info-group .info-buttons .night-mode-toggle {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.dropdown-content ul {
-    padding-left: 20px; /* Add spacing for bullets */
+.info-group .info-buttons .dropdown-toggle:hover,
+.info-group .info-buttons .night-mode-toggle:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-.dropdown-content li {
-    margin-bottom: 5px;
-    color: #555;
-    font-size: 0.9rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upload-section,
+    .result-section {
+        width: 100%;
+    }
+
+    .info-group {
+        top: 10px;
+        right: 10px;
+    }
+
+    .info-group .question-mark {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .info-group .info-buttons .dropdown-toggle,
+    .info-group .info-buttons .night-mode-toggle {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }
 
-.dropdown-content a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.dropdown-content a:hover {
-    text-decoration: underline;
-}
-
+/* Fade-in Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -119,111 +185,5 @@ a:hover {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Utility Classes */
-.text-center {
-    text-align: center;
-}
-
-.text-bold {
-    font-weight: bold;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Click Effect */
-.click-effect {
-    position: fixed; /* Ensure it's fixed relative to the viewport */
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    animation: click-animation 0.4s ease-out;
-    pointer-events: none; /* Prevent interaction */
-    z-index: 1000; /* Ensure it appears above all elements */
-}
-
-@keyframes click-animation {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-/* Night Mode Styles */
-body.night-mode {
-    background-color: #121212; /* Dark background */
-    color: #f1f1f1; /* Light text color */
-}
-
-body.night-mode .content {
-    background: rgba(30, 30, 30, 0.95); /* Dark overlay for content */
-    color: #f1f1f1;
-}
-
-body.night-mode a {
-    color: #80b3ff; /* Light blue links */
-}
-
-body.night-mode a:hover {
-    color: #cce7ff; /* Lighter hover color */
-}
-
-body.night-mode .dropdown-toggle {
-    background: rgba(255, 255, 255, 0.2); /* Light transparent button */
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-body.night-mode .dropdown-content {
-    background: rgba(30, 30, 30, 0.95); /* Dark dropdown background */
-    color: #f1f1f1;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive Design */
-
-/* Medium-sized devices (tablets) */
-@media (max-width: 768px) {
-    body {
-        font-size: 0.95rem; /* Reduce base font size slightly */
-    }
-
-    .content {
-        width: 90%; /* Adjust width for tablets */
-        padding: 20px; /* Add consistent padding */
-    }
-
-    .dropdown-content {
-        width: 200px; /* Adjust width for tablets */
-    }
-}
-
-/* Small devices (mobile phones) */
-@media (max-width: 480px) {
-    body {
-        font-size: 0.85rem; /* Smaller font size for mobile */
-    }
-
-    .content {
-        padding: 15px; /* Compact padding for mobile */
-        width: 95%; /* Expand width for mobile screens */
-        border-radius: 16px; /* Enhance roundness for mobile */
-    }
-
-    a {
-        font-size: 0.85rem; /* Adjust link size */
-    }
-
-    .dropdown-content {
-        width: 180px; /* Adjust width for mobile */
     }
 }

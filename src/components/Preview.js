@@ -5,7 +5,8 @@ import './Preview.css';
 function Preview({ file }) {
   if (!file) return null;
 
-  const fileURL = typeof file === 'string' ? file : URL.createObjectURL(file);
+  // Handle both URLs and File objects
+  const fileURL = file instanceof File ? URL.createObjectURL(file) : file;
 
   return (
     <div className="preview">

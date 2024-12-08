@@ -1,32 +1,34 @@
 /* Header Container */
 .header {
   text-align: center;
-  padding: 30px 15px; /* Slightly increased padding for balance */
-  background-color: #f7f7f7; /* Softer gray for a modern look */
-  border-bottom: 2px solid #eaeaea; /* Subtle bottom border */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+  padding: 40px 20px; /* Increased padding for a spacious look */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 100%);
+  border-radius: 15px; /* Rounded edges for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  max-width: 800px; /* Center the container and constrain width */
+  margin: 0 auto 20px auto; /* Center and add spacing below */
 }
 
 /* Title (H1) */
 .header h1 {
-  font-size: 2.6rem; /* Larger font for a stronger presence */
-  color: #333; /* Dark color for readability */
+  font-size: 2.8rem; /* Large font for prominence */
+  color: #333; /* Dark color for clarity */
   margin: 0;
   font-weight: 700; /* Bold for emphasis */
-  font-family: 'Roboto', sans-serif; /* Consistent with Figma */
-  letter-spacing: 0.6px; /* Slightly increased spacing for clarity */
-  text-transform: capitalize; /* Uniform text case for elegance */
+  font-family: 'Roboto', sans-serif; /* Consistent font family */
+  letter-spacing: 0.6px; /* Slight spacing for improved readability */
+  text-transform: capitalize; /* Capitalize each word for elegance */
 }
 
 /* Subtitle (P) */
 .header p {
-  font-size: 1.1rem; /* Adjusted slightly for balance */
-  color: #555; /* Slightly darker gray for better contrast */
-  margin-top: 15px; /* Increased spacing below title */
-  font-family: 'Roboto', sans-serif; /* Consistent font style */
-  line-height: 1.6; /* Improved line spacing for readability */
-  max-width: 600px; /* Constrain subtitle width for centered layout */
-  margin-left: auto; /* Center subtitle text */
+  font-size: 1.2rem; /* Adjusted size for better balance */
+  color: #555; /* Slightly darker gray for contrast */
+  margin-top: 15px; /* Space between title and subtitle */
+  font-family: 'Roboto', sans-serif; /* Matching typography */
+  line-height: 1.6; /* Comfortable line spacing */
+  max-width: 600px; /* Constrain width for better readability */
+  margin-left: auto; /* Center horizontally */
   margin-right: auto;
 }
 
@@ -35,31 +37,31 @@
 /* Medium-sized devices (tablets) */
 @media (max-width: 768px) {
   .header {
-    padding: 20px 10px; /* Reduce padding for smaller screens */
+    padding: 30px 15px; /* Reduce padding for smaller screens */
   }
 
   .header h1 {
-    font-size: 2.2rem; /* Scale down the title size */
+    font-size: 2.4rem; /* Scale down title size */
   }
 
   .header p {
     font-size: 1rem; /* Adjust subtitle font size */
-    max-width: 80%; /* Reduce subtitle width for smaller screens */
+    max-width: 90%; /* Use more screen width */
   }
 }
 
 /* Small devices (mobile phones) */
 @media (max-width: 480px) {
   .header {
-    padding: 15px 8px; /* Compact padding for mobile */
+    padding: 20px 10px; /* Compact padding for mobile */
   }
 
   .header h1 {
-    font-size: 1.8rem; /* Further reduce title size */
+    font-size: 2rem; /* Further reduce title size */
   }
 
   .header p {
     font-size: 0.9rem; /* Compact subtitle font size */
-    max-width: 90%; /* Use most of the screen width */
+    max-width: 95%; /* Use most of the screen width */
   }
 }
