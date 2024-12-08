@@ -1,33 +1,23 @@
-/* src/styles/Loader.css */
+/* src/components/Loader.css */
 
-/* Loader container */
 .loader-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
   }
   
-  /* Loader animation */
   .loader {
-    width: 40px;
-    height: 40px;
-    border: 4px solid rgba(0, 123, 255, 0.3);
-    border-top: 4px solid #007bff;
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
     border-radius: 50%;
+    width: 50px;
+    height: 50px;
     animation: spin 1s linear infinite;
-    margin-bottom: 10px;
   }
   
-  /* Loading text */
-  .loader-container p {
-    font-size: 1rem;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Keyframe animation for spinner */
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -35,5 +25,12 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+  
+  .loader-container p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
   }
   

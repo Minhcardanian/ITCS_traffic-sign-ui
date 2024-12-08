@@ -5,6 +5,7 @@ import Preview from './components/Preview';
 import Result from './components/Result';
 import SampleImages from './components/SampleImages';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 import BackgroundMap from './components/BackgroundMap';
 import './App.css';
 import './components/ClickEffect.css';
