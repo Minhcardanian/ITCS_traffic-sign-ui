@@ -3,23 +3,26 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
+    gap: 15px; /* Reduced gap for tighter layout */
+    padding: 15px; /* Slightly reduced padding for overall layout */
 }
 
-/* Upload Section */
-.upload-section {
+/* Upload Section and Result Section */
+.upload-section,
+.result-section {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px; /* Reduced gap between internal components */
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); /* White transparent background */
+    justify-content: flex-start; /* Align content to the top for better balance */
+    background: rgba(255, 255, 255, 0.8); /* White transparent background for Upload */
     border: 2px solid #e0e0e0;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 15px; /* Reduced internal padding */
     position: relative;
+    min-height: 400px; /* Keeps sections equal in height */
 }
 
 /* Default Label for Upload */
@@ -28,27 +31,10 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1rem; /* Slightly smaller text */
+    font-weight: 600; /* Reduced font weight */
     color: #555;
     opacity: 0.8;
-}
-
-/* Result Section */
-.result-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: rgba(144, 238, 144, 0.8); /* Green transparent background */
-    border: 2px solid #e0e0e0;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    min-height: 300px;
-    position: relative;
 }
 
 /* Default Label for Result */
@@ -57,17 +43,17 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1rem; /* Slightly smaller text */
+    font-weight: 600; /* Reduced font weight */
     color: #555;
     opacity: 0.8;
 }
 
 /* Send Button */
 .send-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: 8px 18px; /* Adjusted padding for better proportion */
+    font-size: 0.95rem; /* Slightly smaller font size */
+    font-weight: 500;
     color: white;
     background-color: #4a90e2;
     border: none;
@@ -97,9 +83,9 @@
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 35px; /* Slightly smaller size */
+    height: 35px;
+    font-size: 1rem; /* Adjusted font size */
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -108,28 +94,28 @@
 
 .info-group .question-mark:hover {
     background-color: #0056b3;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Info Buttons Container */
 .info-group .info-buttons {
-    margin-top: 10px;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 8px;
+    gap: 6px; /* Reduced gap for tighter dropdown options */
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 8px; /* Reduced padding for compact dropdown */
     animation: fadeIn 0.3s ease;
 }
 
 /* Buttons in Expanded State */
 .info-group .info-buttons .dropdown-toggle,
 .info-group .info-buttons .night-mode-toggle {
-    padding: 8px 15px;
+    padding: 6px 12px; /* Adjusted padding for better fit */
     font-size: 0.85rem;
     color: white;
     background-color: #007bff;
@@ -156,23 +142,7 @@
     .upload-section,
     .result-section {
         width: 100%;
-    }
-
-    .info-group {
-        top: 10px;
-        right: 10px;
-    }
-
-    .info-group .question-mark {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-
-    .info-group .info-buttons .dropdown-toggle,
-    .info-group .info-buttons .night-mode-toggle {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        min-height: auto; /* Adjust height for smaller screens */
     }
 }
 
