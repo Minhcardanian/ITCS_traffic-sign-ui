@@ -16,13 +16,18 @@
     gap: 15px; /* Reduced gap between internal components */
     align-items: center;
     justify-content: flex-start; /* Align content to the top for better balance */
-    background: rgba(255, 255, 255, 0.8); /* White transparent background for Upload */
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Soft gradient */
     border: 2px solid #e0e0e0;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
     padding: 15px; /* Reduced internal padding */
     position: relative;
     min-height: 400px; /* Keeps sections equal in height */
+}
+
+/* Result Section Background */
+.result-section {
+    background: linear-gradient(135deg, #e8ffe8, #d2ffd2); /* Green gradient for result */
 }
 
 /* Default Label for Upload */
@@ -55,15 +60,17 @@
     font-size: 0.95rem; /* Slightly smaller font size */
     font-weight: 500;
     color: white;
-    background-color: #4a90e2;
+    background: linear-gradient(90deg, #4a90e2, #1e70bf); /* Gradient background */
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Enhanced button shadow */
+    transition: all 0.3s ease;
 }
 
 .send-button:hover {
-    background-color: #1e70bf;
+    background: linear-gradient(90deg, #1e70bf, #4a90e2); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Hover animation */
 }
 
 /* Info Group (Dropdown and Night Mode Group) */
@@ -113,8 +120,7 @@
 }
 
 /* Buttons in Expanded State */
-.info-group .info-buttons .dropdown-toggle,
-.info-group .info-buttons .night-mode-toggle {
+.info-group .info-buttons .dropdown-toggle {
     padding: 6px 12px; /* Adjusted padding for better fit */
     font-size: 0.85rem;
     color: white;
@@ -126,10 +132,20 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.info-group .info-buttons .dropdown-toggle:hover,
-.info-group .info-buttons .night-mode-toggle:hover {
+.info-group .info-buttons .dropdown-toggle:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+/* Sample Images Hover Effect */
+.sample-images img {
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sample-images img:hover {
+    transform: scale(1.1) rotate(2deg); /* Slight zoom and rotation */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */

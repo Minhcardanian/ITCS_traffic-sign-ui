@@ -87,7 +87,7 @@ function App() {
           <div className="info-buttons">
             <button className="dropdown-toggle">About This Project</button>
             <button
-              className="night-mode-toggle"
+              className="dropdown-toggle"
               onClick={() => document.body.classList.toggle('night-mode')}
             >
               Night Mode
