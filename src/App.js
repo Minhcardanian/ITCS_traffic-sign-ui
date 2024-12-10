@@ -14,6 +14,7 @@ function App() {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [previewForResult, setPreviewForResult] = useState(null); // Added state for Result section preview
 
   const handleUpload = (uploadedFile) => {
     if (!uploadedFile) {
@@ -21,7 +22,9 @@ function App() {
       return;
     }
     console.log('File uploaded:', uploadedFile);
-    setFile(URL.createObjectURL(uploadedFile));
+    const fileURL = URL.createObjectURL(uploadedFile);
+    setFile(fileURL);
+    setPreviewForResult(null); // Clear previous preview
     setResult('');
   };
 
@@ -32,6 +35,7 @@ function App() {
     }
     console.log('Sample image selected:', src);
     setFile(src);
+    setPreviewForResult(null); // Clear previous preview
     setResult('');
   };
 
@@ -45,6 +49,8 @@ function App() {
     setTimeout(() => {
       setLoading(false);
       setResult('The sign to examine is: Crossroad Warning Sign');
+      setPreviewForResult(file); // Pass the preview file to Result section
+      setFile(null); // Clear the file to remove the preview from the Upload section
     }, 2000);
   };
 
@@ -103,8 +109,16 @@ function App() {
         </div>
         <div className="result-section">
           <h3 className="section-title">Result</h3>
-          {loading ? <Loader /> : file && <Preview file={file} />}
-          {result && <Result result={result} />}
+          {loading ? (
+            <Loader />
+          ) : (
+            previewForResult && (
+              <div>
+                <Preview file={previewForResult} /> {/* Display preview in Result section */}
+                <Result result={result} />
+              </div>
+            )
+          )}
         </div>
       </div>
     </div>
