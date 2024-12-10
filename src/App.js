@@ -98,8 +98,7 @@ function App() {
       <Header />
 
       <div className="main-layout">
-        <div className="upload-section">
-          <h3 className="section-title">Upload</h3>
+        <div className="upload-section" data-title="Upload">
           <UploadArea onUpload={handleUpload} />
           {file && <Preview file={file} />}
           <SampleImages onSelectSample={handleSampleSelect} />
@@ -107,14 +106,13 @@ function App() {
             Send
           </button>
         </div>
-        <div className="result-section">
-          <h3 className="section-title">Result</h3>
+        <div className="result-section" data-title="Result">
           {loading ? (
             <Loader />
           ) : (
             previewForResult && (
               <div>
-                <Preview file={previewForResult} /> {/* Display preview in Result section */}
+                <Preview file={previewForResult} />
                 <Result result={result} />
               </div>
             )

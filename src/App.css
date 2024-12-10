@@ -3,8 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 15px; /* Reduced gap for tighter layout */
-    padding: 15px; /* Slightly reduced padding for overall layout */
+    gap: 15px;
+    padding: 15px;
 }
 
 /* Upload Section and Result Section */
@@ -13,67 +13,68 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Reduced gap between internal components */
+    gap: 15px;
     align-items: center;
-    justify-content: flex-start; /* Align content to the top for better balance */
-    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Soft gradient */
-    border: 2px solid #e0e0e0;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-    padding: 15px; /* Reduced internal padding */
+    justify-content: flex-start;
+    background: linear-gradient(135deg, #ffffff, #f8f8f8);
+    border: 1px solid rgba(200, 200, 200, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     position: relative;
-    min-height: 400px; /* Keeps sections equal in height */
+    min-height: 400px;
+    margin-top: 20px; /* Added space for the tab */
 }
 
-/* Result Section Background */
-.result-section {
-    background: linear-gradient(135deg, #e8ffe8, #d2ffd2); /* Green gradient for result */
-}
-
-/* Default Label for Upload */
-.upload-section::before {
-    content: "Upload";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1rem; /* Slightly smaller text */
-    font-weight: 600; /* Reduced font weight */
-    color: #555;
-    opacity: 0.8;
-}
-
-/* Default Label for Result */
+/* Tab-Style Labels */
+.upload-section::before,
 .result-section::before {
-    content: "Result";
+    content: attr(data-title); /* Dynamically adds section titles */
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1rem; /* Slightly smaller text */
-    font-weight: 600; /* Reduced font weight */
-    color: #555;
-    opacity: 0.8;
+    top: -25px; /* Position the tab at the edge */
+    left: 0; /* Align with left edge */
+    width: 100%; /* Span the width of the section */
+    padding: 10px 0; /* Padding for height */
+    text-align: center;
+    background-color: #4caf50; /* Polished green for tabs */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-top-left-radius: 12px; /* Match the section border */
+    border-top-right-radius: 12px; /* Match the section border */
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
+
+/* Ensure content stays below the header */
+.upload-section > * {
+    z-index: 2;
+}
+
+.result-section > * {
+    z-index: 2;
 }
 
 /* Send Button */
 .send-button {
-    padding: 8px 18px; /* Adjusted padding for better proportion */
-    font-size: 0.95rem; /* Slightly smaller font size */
+    padding: 10px 20px;
+    font-size: 0.95rem;
     font-weight: 500;
     color: white;
-    background: linear-gradient(90deg, #4a90e2, #1e70bf); /* Gradient background */
+    background: linear-gradient(90deg, #4caf50, #388e3c);
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Enhanced button shadow */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .send-button:hover {
-    background: linear-gradient(90deg, #1e70bf, #4a90e2); /* Reverse gradient on hover */
-    transform: translateY(-2px); /* Hover animation */
+    background: linear-gradient(90deg, #388e3c, #4caf50);
+    transform: translateY(-2px);
 }
 
-/* Info Group (Dropdown and Night Mode Group) */
+/* Info Group */
 .info-group {
     position: fixed;
     top: 10px;
@@ -90,9 +91,9 @@
     color: white;
     border: none;
     border-radius: 50%;
-    width: 35px; /* Slightly smaller size */
+    width: 35px;
     height: 35px;
-    font-size: 1rem; /* Adjusted font size */
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -104,47 +105,29 @@
     transform: scale(1.05);
 }
 
-/* Info Buttons Container */
+/* Info Buttons */
 .info-group .info-buttons {
     margin-top: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px; /* Reduced gap for tighter dropdown options */
+    gap: 6px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 8px; /* Reduced padding for compact dropdown */
+    padding: 8px;
     animation: fadeIn 0.3s ease;
-}
-
-/* Buttons in Expanded State */
-.info-group .info-buttons .dropdown-toggle {
-    padding: 6px 12px; /* Adjusted padding for better fit */
-    font-size: 0.85rem;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.info-group .info-buttons .dropdown-toggle:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
 }
 
 /* Sample Images Hover Effect */
 .sample-images img {
-    border-radius: 8px; /* Slightly rounded corners */
+    border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sample-images img:hover {
-    transform: scale(1.1) rotate(2deg); /* Slight zoom and rotation */
+    transform: scale(1.1) rotate(2deg);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -158,7 +141,7 @@
     .upload-section,
     .result-section {
         width: 100%;
-        min-height: auto; /* Adjust height for smaller screens */
+        min-height: auto;
     }
 }
 
