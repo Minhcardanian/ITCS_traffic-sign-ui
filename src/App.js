@@ -4,7 +4,6 @@ import UploadArea from './components/UploadArea';
 import Preview from './components/Preview';
 import Result from './components/Result';
 import SampleImages from './components/SampleImages';
-import Footer from './components/Footer';
 import Loader from './components/Loader';
 import BackgroundMap from './components/BackgroundMap';
 import './App.css';
@@ -14,7 +13,7 @@ function App() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isInfoOpen, setIsInfoOpen] = useState(false); // State to toggle the dropdown info
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
   const handleUpload = (uploadedFile) => {
     if (!uploadedFile) {
@@ -22,8 +21,8 @@ function App() {
       return;
     }
     console.log('File uploaded:', uploadedFile);
-    setFile(URL.createObjectURL(uploadedFile)); // Convert file to a URL for display
-    setResult(''); // Clear result on new upload
+    setFile(URL.createObjectURL(uploadedFile));
+    setResult('');
   };
 
   const handleSampleSelect = (src) => {
@@ -32,8 +31,8 @@ function App() {
       return;
     }
     console.log('Sample image selected:', src);
-    setFile(src); // Use the provided image URL directly
-    setResult(''); // Clear result on new sample selection
+    setFile(src);
+    setResult('');
   };
 
   const handleSend = () => {
@@ -45,8 +44,8 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setResult('The sign to examine is: Crossroad Warning Sign'); // Simulated result
-    }, 2000); // Simulated processing time
+      setResult('The sign to examine is: Crossroad Warning Sign');
+    }, 2000);
   };
 
   const toggleInfoGroup = () => {
@@ -81,7 +80,10 @@ function App() {
         {isInfoOpen && (
           <div className="info-buttons">
             <button className="dropdown-toggle">About This Project</button>
-            <button className="night-mode-toggle" onClick={() => document.body.classList.toggle('night-mode')}>
+            <button
+              className="night-mode-toggle"
+              onClick={() => document.body.classList.toggle('night-mode')}
+            >
               Night Mode
             </button>
           </div>
@@ -89,12 +91,11 @@ function App() {
       </div>
       <Header />
 
-      {/* Split layout for Upload and Result Sections */}
       <div className="main-layout">
         <div className="upload-section">
           <h3 className="section-title">Upload</h3>
           <UploadArea onUpload={handleUpload} />
-          {file && <Preview file={file} />} {/* Show preview in the upload section */}
+          {file && <Preview file={file} />}
           <SampleImages onSelectSample={handleSampleSelect} />
           <button className="send-button" onClick={handleSend}>
             Send
@@ -102,12 +103,10 @@ function App() {
         </div>
         <div className="result-section">
           <h3 className="section-title">Result</h3>
-          {loading ? <Loader /> : file && <Preview file={file} />} {/* Show the same preview in the result section */}
+          {loading ? <Loader /> : file && <Preview file={file} />}
           {result && <Result result={result} />}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
