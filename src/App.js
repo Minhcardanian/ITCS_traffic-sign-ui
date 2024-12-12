@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import UploadArea from './components/UploadArea';
-import Preview from './components/Preview';
 import Result from './components/Result';
 import SampleImages from './components/SampleImages';
 import Loader from './components/Loader';
@@ -49,10 +48,7 @@ function App() {
     setTimeout(() => {
       setLoading(false);
       setResult('The sign to examine is: Crossroad Warning Sign');
-      setProcessedImages([
-        { id: 1, src: file },
-        { id: 2, src: file }, // Replace with backend-processed image URLs
-      ]);
+      setProcessedImages([file, file]); // Example processed images
       setFile(null); // Clear the file to remove the preview from the Upload section
     }, 2000);
   };
@@ -104,7 +100,6 @@ function App() {
         {/* Upload Section */}
         <div className="upload-section" data-title="Upload">
           <UploadArea onUpload={handleUpload} />
-          {file && <Preview file={file} />} {/* Preview displayed here */}
           <SampleImages onSelectSample={handleSampleSelect} />
           <button className="send-button" onClick={handleSend}>
             Send
@@ -116,19 +111,7 @@ function App() {
           {loading ? (
             <Loader />
           ) : (
-            <div>
-              <div className="processed-images">
-                {processedImages.length > 0
-                  ? processedImages.map((img) => (
-                      <Preview key={img.id} file={img.src} />
-                    ))
-                  : null}
-              </div>
-              <Result
-                result={result || 'Result will be displayed here'}
-                processedImages={processedImages}
-              />
-            </div>
+            <Result result={result} processedImages={processedImages} />
           )}
         </div>
       </div>
