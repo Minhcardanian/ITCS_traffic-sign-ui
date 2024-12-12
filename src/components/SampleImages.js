@@ -17,13 +17,15 @@ function SampleImages({ onSelectSample }) {
       <h3>Sample Images</h3>
       <div className="images-grid">
         {sampleImages.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Sample ${index + 1}`}
-            onClick={() => onSelectSample(src)}
-            className="sample-image"
-          />
+          <div key={index} className="sample-image-container">
+            <img
+              src={src}
+              alt={`Sample ${index + 1}`}
+              onClick={() => onSelectSample(src)}
+              className="sample-image"
+            />
+            <p className="sample-label">{`Sample ${index + 1}`}</p>
+          </div>
         ))}
       </div>
     </div>

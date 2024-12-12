@@ -1,68 +1,83 @@
-/* src/styles/SampleImages.css */
-
 /* Container for Sample Images */
 .sample-images {
-  margin: 30px auto; /* Centralized and consistent spacing */
+  margin: 30px auto; /* Center alignment */
   text-align: center;
   padding: 10px;
+  width: 100%; /* Ensure it spans the section width */
 }
 
 /* Title for the Sample Images Section */
 .sample-images h3 {
-  font-size: 1.5rem; /* Slightly larger for prominence */
-  color: #333; /* Darker title color for readability */
-  margin-bottom: 15px; /* Spacing below the title */
-  font-family: 'Roboto', sans-serif; /* Replace with Figma font if specified */
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Flexbox Container for Images */
-.sample-images .images {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  justify-content: center; /* Center-align the images */
-  gap: 15px; /* Increased gap for better spacing */
-  margin-top: 10px;
+/* Grid Layout for Images */
+.sample-images .images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns by default */
+  gap: 15px; /* Increased spacing between images */
+  justify-content: center; /* Center-align the grid */
+  align-items: center;
+  margin: 0 auto; /* Ensure grid is centered */
+  max-width: 320px; /* Constrain the grid width */
 }
 
 /* Individual Image Styling */
-.sample-images img {
-  width: 100px; /* Larger size for better visibility */
+.sample-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sample-image-container img {
+  width: 100px;
   height: 100px;
-  object-fit: cover; /* Ensures consistent aspect ratio */
-  border-radius: 12px; /* Modern rounded corners */
-  cursor: pointer; /* Indicates interactivity */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect */
-.sample-images img:hover {
-  transform: scale(1.1); /* Zoom-in effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+/* Hover Effect for Images */
+.sample-image-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
+/* Labels Below Each Image */
+.sample-label {
+  margin-top: 8px; /* Space above label */
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .sample-images img {
-      width: 80px; /* Reduce size for smaller screens */
-      height: 80px;
+  .sample-images .images-grid {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to two columns for smaller screens */
   }
 
-  .sample-images .images {
-      gap: 10px; /* Adjust spacing */
+  .sample-image-container img {
+    width: 80px;
+    height: 80px;
   }
 }
 
 @media (max-width: 480px) {
-  .sample-images img {
-      width: 70px; /* Further reduce size for mobile */
-      height: 70px;
+  .sample-images .images-grid {
+    grid-template-columns: repeat(1, 1fr); /* Single column layout for mobile */
+  }
+
+  .sample-image-container img {
+    width: 70px;
+    height: 70px;
   }
 
   .sample-images h3 {
-      font-size: 1.2rem; /* Scale down title size */
-  }
-
-  .sample-images .images {
-      gap: 8px; /* Compact spacing for smaller screens */
+    font-size: 1.2rem; /* Adjust title size for mobile screens */
   }
 }

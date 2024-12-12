@@ -11,7 +11,7 @@ function Preview({ file }) {
   return (
     <div className="preview">
       <h3>Preview</h3>
-      <img src={fileURL} alt="Uploaded Preview" />
+      <img src={fileURL} alt="Uploaded Preview" className="preview-image" />
     </div>
   );
 }

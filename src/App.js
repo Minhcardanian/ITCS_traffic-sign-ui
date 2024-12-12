@@ -14,7 +14,7 @@ function App() {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [previewForResult, setPreviewForResult] = useState(null); // Added state for Result section preview
+  const [processedImages, setProcessedImages] = useState([]); // Stores processed images for the Result section
 
   const handleUpload = (uploadedFile) => {
     if (!uploadedFile) {
@@ -24,8 +24,8 @@ function App() {
     console.log('File uploaded:', uploadedFile);
     const fileURL = URL.createObjectURL(uploadedFile);
     setFile(fileURL);
-    setPreviewForResult(null); // Clear previous preview
     setResult('');
+    setProcessedImages([]);
   };
 
   const handleSampleSelect = (src) => {
@@ -35,8 +35,8 @@ function App() {
     }
     console.log('Sample image selected:', src);
     setFile(src);
-    setPreviewForResult(null); // Clear previous preview
     setResult('');
+    setProcessedImages([]);
   };
 
   const handleSend = () => {
@@ -49,7 +49,10 @@ function App() {
     setTimeout(() => {
       setLoading(false);
       setResult('The sign to examine is: Crossroad Warning Sign');
-      setPreviewForResult(file); // Pass the preview file to Result section
+      setProcessedImages([
+        { id: 1, src: file },
+        { id: 2, src: file }, // Replace with backend-processed image URLs
+      ]);
       setFile(null); // Clear the file to remove the preview from the Upload section
     }, 2000);
   };
@@ -98,21 +101,28 @@ function App() {
       <Header />
 
       <div className="main-layout">
+        {/* Upload Section */}
         <div className="upload-section" data-title="Upload">
           <UploadArea onUpload={handleUpload} />
-          {file && <Preview file={file} />}
+          {file && <Preview file={file} />} {/* Preview displayed here */}
           <SampleImages onSelectSample={handleSampleSelect} />
           <button className="send-button" onClick={handleSend}>
             Send
           </button>
         </div>
+
+        {/* Result Section */}
         <div className="result-section" data-title="Result">
           {loading ? (
             <Loader />
           ) : (
-            previewForResult && (
+            processedImages.length > 0 && (
               <div>
-                <Preview file={previewForResult} />
+                <div className="processed-images">
+                  {processedImages.map((img) => (
+                    <Preview key={img.id} file={img.src} />
+                  ))}
+                </div>
                 <Result result={result} />
               </div>
             )
