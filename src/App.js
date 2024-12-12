@@ -116,16 +116,19 @@ function App() {
           {loading ? (
             <Loader />
           ) : (
-            processedImages.length > 0 && (
-              <div>
-                <div className="processed-images">
-                  {processedImages.map((img) => (
-                    <Preview key={img.id} file={img.src} />
-                  ))}
-                </div>
-                <Result result={result} />
+            <div>
+              <div className="processed-images">
+                {processedImages.length > 0
+                  ? processedImages.map((img) => (
+                      <Preview key={img.id} file={img.src} />
+                    ))
+                  : null}
               </div>
-            )
+              <Result
+                result={result || 'Result will be displayed here'}
+                processedImages={processedImages}
+              />
+            </div>
           )}
         </div>
       </div>
