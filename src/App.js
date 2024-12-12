@@ -14,7 +14,7 @@ function App() {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [processedImages, setProcessedImages] = useState([]); // Stores processed images for the Result section
+  const [processedImages, setProcessedImages] = useState([]);
 
   const handleUpload = (uploadedFile) => {
     if (!uploadedFile) {
@@ -25,7 +25,6 @@ function App() {
     const fileURL = URL.createObjectURL(uploadedFile);
     setFile(fileURL);
     setResult('');
-    setProcessedImages([]);
   };
 
   const handleSampleSelect = (src) => {
@@ -36,7 +35,6 @@ function App() {
     console.log('Sample image selected:', src);
     setFile(src);
     setResult('');
-    setProcessedImages([]);
   };
 
   const handleSend = () => {
@@ -48,12 +46,10 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setResult('The sign to examine is: Crossroad Warning Sign');
       setProcessedImages([
-        { id: 1, src: file },
-        { id: 2, src: file }, // Replace with backend-processed image URLs
+        { id: 1, label: 'Extract 1', src: file },
+        { id: 2, label: 'Extract 2', src: file },
       ]);
-      setFile(null); // Clear the file to remove the preview from the Upload section
     }, 2000);
   };
 
@@ -118,15 +114,19 @@ function App() {
           ) : (
             <div>
               <div className="processed-images">
-                {processedImages.length > 0
-                  ? processedImages.map((img) => (
-                      <Preview key={img.id} file={img.src} />
-                    ))
-                  : null}
+                {processedImages.map((img) => (
+                  <div key={img.id} className="processed-frame">
+                    <img src={img.src} alt={img.label} />
+                    <p>{img.label}</p>
+                  </div>
+                ))}
               </div>
               <Result
-                result={result || 'Result will be displayed here'}
-                processedImages={processedImages}
+                result={
+                  processedImages.length > 0
+                    ? 'The processed extracts are displayed above.'
+                    : 'Result will be displayed here'
+                }
               />
             </div>
           )}
