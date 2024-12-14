@@ -2,23 +2,37 @@
 import React from 'react';
 import './Result.css';
 
-function Result({ result, processedImages }) {
+function Result({ result }) {
   return (
     <div className="result">
       <h2>Result</h2>
-      {(!processedImages || processedImages.length === 0) && (
+      {result ? (
+        <div className="result-details">
+          <p className="result-label">{result.label}</p>
+          <div className="result-images">
+            <div className="result-image-wrapper">
+              <img
+                src={result.SemanticImage}
+                alt="Semantic Context"
+                className="result-image"
+              />
+              <p>Semantic Image</p>
+            </div>
+            <div className="result-image-wrapper">
+              <img
+                src={result.IlluImage}
+                alt="Illustration"
+                className="result-image"
+              />
+              <p>Illustration Image</p>
+            </div>
+          </div>
+        </div>
+      ) : (
         <div className="result-placeholder">
           <p>Result will be displayed here</p>
         </div>
       )}
-      {processedImages && processedImages.length > 0 && (
-        <div className="processed-images">
-          {processedImages.map((image, index) => (
-            <img key={index} src={image} alt={`Processed ${index + 1}`} />
-          ))}
-        </div>
-      )}
-      {result && <p>{result}</p>}
     </div>
   );
 }

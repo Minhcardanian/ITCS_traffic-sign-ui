@@ -21,36 +21,63 @@
 /* Result Placeholder */
 .result-placeholder {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: rgba(76, 175, 80, 0.2); /* Light green transparent background */
   border: 2px dashed #4caf50; /* Dashed border for placeholder */
   border-radius: 12px;
   width: 100%;
-  height: 150px;
+  height: auto;
   color: #4caf50; /* Green text color */
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
+  padding: 10px;
 }
 
-/* Processed Images Layout */
-.processed-images {
+/* Result Details */
+.result-details {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 15px;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 10px; /* Add padding for spacing */
 }
 
-.processed-images img {
-  max-width: 48%; /* Each image takes up half the width of the container */
+/* Label Text */
+.result-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px; /* Add spacing below label */
+}
+
+/* Result Images Layout */
+.result-images {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 45%;
+}
+
+.result-image {
+  max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
 }
 
 /* Result Text */
-.result p {
+.result-text {
   font-size: 1.2rem;
   color: #555;
   line-height: 1.6;
@@ -70,8 +97,16 @@
     font-size: 1.6rem;
   }
 
-  .result p {
+  .result-text {
     font-size: 1.1rem;
+  }
+
+  .result-label {
+    font-size: 1.3rem;
+  }
+
+  .result-image-wrapper {
+    max-width: 70%; /* Adjust image width for tablets */
   }
 }
 
@@ -85,11 +120,19 @@
     font-size: 1.4rem;
   }
 
-  .result p {
+  .result-text {
     font-size: 1rem;
   }
 
-  .processed-images img {
+  .result-label {
+    font-size: 1.2rem;
+  }
+
+  .result-image-wrapper {
     max-width: 100%; /* Full width for mobile */
+  }
+
+  .result-images {
+    gap: 10px; /* Reduce gap for smaller screens */
   }
 }

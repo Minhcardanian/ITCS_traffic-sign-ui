@@ -14,7 +14,6 @@ function App() {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [processedImages, setProcessedImages] = useState([]);
 
   const handleUpload = (uploadedFile) => {
     if (!uploadedFile) {
@@ -46,10 +45,6 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setProcessedImages([
-        { id: 1, label: 'Extract 1', src: file },
-        { id: 2, label: 'Extract 2', src: file },
-      ]);
     }, 2000);
   };
 
@@ -109,27 +104,7 @@ function App() {
 
         {/* Result Section */}
         <div className="result-section" data-title="Result">
-          {loading ? (
-            <Loader />
-          ) : (
-            <div>
-              <div className="processed-images">
-                {processedImages.map((img) => (
-                  <div key={img.id} className="processed-frame">
-                    <img src={img.src} alt={img.label} />
-                    <p>{img.label}</p>
-                  </div>
-                ))}
-              </div>
-              <Result
-                result={
-                  processedImages.length > 0
-                    ? 'The processed extracts are displayed above.'
-                    : 'Result will be displayed here'
-                }
-              />
-            </div>
-          )}
+          {loading ? <Loader /> : <Result result="Result will be displayed here" />}
         </div>
       </div>
     </div>
