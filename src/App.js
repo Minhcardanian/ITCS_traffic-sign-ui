@@ -10,8 +10,9 @@ import './App.css';
 import './components/ClickEffect.css';
 
 function App() {
-  const [file, setFile] = useState(null);
-  const [result, setResult] = useState('');
+  const [file, setFile] = useState(null);          // URL for preview
+  const [selectedFile, setSelectedFile] = useState(null); // Actual file object
+  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
 
@@ -23,29 +24,71 @@ function App() {
     console.log('File uploaded:', uploadedFile);
     const fileURL = URL.createObjectURL(uploadedFile);
     setFile(fileURL);
-    setResult('');
+    setSelectedFile(uploadedFile);
+    setResult(null);
   };
 
-  const handleSampleSelect = (src) => {
-    if (!src) {
-      alert('No sample selected. Please try again.');
+  const handleSampleSelect = (sampleFile) => {
+    if (!sampleFile) {
+      alert('No sample file received. Please try again.');
       return;
     }
-    console.log('Sample image selected:', src);
-    setFile(src);
-    setResult('');
+    console.log('Sample file selected:', sampleFile);
+    const fileURL = URL.createObjectURL(sampleFile);
+    setFile(fileURL);
+    setSelectedFile(sampleFile);
+    setResult(null);
   };
 
   const handleSend = () => {
-    if (!file) {
+    if (!selectedFile && !file) {
       alert('Please upload or select an image first.');
       return;
     }
 
+    // We now handle both uploaded files and sample files the same way,
+    // since `handleSampleSelect()` provides a File object.
+    if (!selectedFile) {
+      alert('No file selected. Please try again.');
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+
+    const formData = new FormData();
+    formData.append('image', selectedFile); // 'image' must match the backend key
+
+    fetch('http://127.0.0.1:5000/classify', {
+      method: 'POST',
+      body: formData
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Response from backend:', data);
+        if (data.error) {
+          alert('Error from server: ' + data.error);
+          setResult(null);
+        } else {
+          // Set result as an object to match Result.js expectations
+          setResult({
+            label: `Predicted class: ${data.pred_class}`,
+            SemanticImage: data.sem_image_url,
+            IlluImage: data.illu_image_url,
+          });
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Error communicating with the server. Please try again.');
+        setLoading(false);
+        setResult(null);
+      });
   };
 
   const toggleInfoGroup = () => {
@@ -104,7 +147,11 @@ function App() {
 
         {/* Result Section */}
         <div className="result-section" data-title="Result">
-          {loading ? <Loader /> : <Result result="Result will be displayed here" />}
+          {loading ? (
+            <Loader />
+          ) : (
+            <Result result={result} />
+          )}
         </div>
       </div>
     </div>
