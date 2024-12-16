@@ -1,65 +1,38 @@
 # ITCS Traffic Sign UI
 
-For the Intro-CS subject at VGU, this is the frontend for a traffic-sign detection project built using React.
+This is the frontend for a traffic sign detection and classification project as part of the Intro-CS subject at VGU. The frontend, built using React, interfaces with a backend model server to classify uploaded traffic sign images.
+
+## Project Overview
+
+This project aims to classify traffic signs using a deep learning model. The backend model processes images through a pipeline consisting of several stages (Extractor, Localizer, Decoder, Classifier) to identify the type of traffic sign. The frontend’s role is to provide a user-friendly interface for uploading images, interacting with the model, and displaying results.
+
+**Key steps in the classification pipeline (handled by the backend):**
+- **Extractor**: Extracts low-level features from the input image using convolutional layers.
+- **Localizer**: Employs a spatial transformer to focus on the most relevant regions, improving robustness to shifts and rotations.
+- **Decoder**: Refines and reconstructs localized features into a representation suitable for classification.
+- **Classifier**: Applies additional layers to produce final class predictions using cross-entropy loss.
+
+The frontend sends user-uploaded images to the backend for inference, then receives predicted classes and feature images (semantic, illumination maps) to display.
 
 ## Features
-- Upload traffic sign images and classify them.
-- Display classification results.
-- Night mode toggle for enhanced user experience in low-light conditions.
-- Dropdown with project details and links to the repository.
-- Minimalistic UI designed based on Figma mockups.
-- Click effects for interactive feedback.
+
+- **Upload and Classify Images**: Drag-and-drop or click-to-upload traffic sign images for real-time classification.
+- **Real-Time Results Display**: Shows predicted class and related feature visualizations.
+- **Night Mode Toggle**: Switch between light and dark themes for better accessibility and comfort.
+- **Dropdown Info Panel**: Access project details, repository links, and more.
+- **Click Effects**: Interactive visual feedback on mouse clicks.
+- **Responsive UI**: Layout adapts seamlessly to mobile, tablet, and desktop devices.
 
 ## Technologies Used
-- **React**: For building the UI.
-- **CSS**: For styling components and responsiveness.
-- **Responsive Design**: Ensuring compatibility across devices.
 
-## Installation
-Clone the repository and run:
+- **React**: Core framework for building the UI.
+- **CSS**: For styling and responsive design.
+- **HTML5 & JavaScript**: Standard web technologies for a smooth user experience.
+- **REST API Integration**: Communicates with the backend server to retrieve classification results.
 
-```bash
-npm install
-npm start
-```
+## Installation and Setup
 
-## New Features Added
-1. **Night Mode Toggle**:
-   - Allows users to switch between light and dark themes for better accessibility.
-   - Dynamically adjusts text and background colors.
-
-2. **Dropdown Info Panel**:
-   - Provides quick access to project details and repository links.
-   - Stylish dropdown with animation and bullet points for clarity.
-
-3. **Click Effects**:
-   - Adds an interactive visual effect on mouse clicks.
-
-4. **Improved Responsiveness**:
-   - Enhanced styling for mobile, tablet, and desktop views.
-   - Adjustments made for better usability in smaller devices.
-
-5. **Semi-transparent Background**:
-   - Improves focus on the content overlay.
-
-## Deployment
-The app can be deployed using services like Netlify or GitHub Pages. Run the following commands to deploy:
-
-### Deploy to GitHub Pages:
-```bash
-npm run build
-npm run deploy
-```
-
-### Deploy to Netlify:
-1. Build the project:
+1. **Clone the repository**:
    ```bash
-   npm run build
-   ```
-2. Drag the `build` folder to Netlify for instant deployment.
-
-## Usage
-1. Open the app in a browser.
-2. Use the upload area to upload traffic sign images.
-3. Toggle night mode using the button in the bottom-right corner.
-4. Explore the dropdown in the top-right for project details.
+   git clone https://github.com/yourusername/traffic-sign-ui.git
+   cd traffic-sign-ui
