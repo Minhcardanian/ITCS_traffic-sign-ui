@@ -46,8 +46,6 @@ function App() {
       return;
     }
 
-    // We now handle both uploaded files and sample files the same way,
-    // since `handleSampleSelect()` provides a File object.
     if (!selectedFile) {
       alert('No file selected. Please try again.');
       return;
@@ -56,9 +54,10 @@ function App() {
     setLoading(true);
 
     const formData = new FormData();
-    formData.append('image', selectedFile); // 'image' must match the backend key
+    formData.append('image', selectedFile);
 
-    fetch('http://127.0.0.1:5000/classify', {
+    // Update the fetch URL to the new backend IP and port
+    fetch('http://100.95.131.112:5000/classify', {
       method: 'POST',
       body: formData
     })
@@ -74,7 +73,6 @@ function App() {
           alert('Error from server: ' + data.error);
           setResult(null);
         } else {
-          // Set result as an object to match Result.js expectations
           setResult({
             label: `Predicted class: ${data.pred_class}`,
             SemanticImage: data.sem_image_url,
