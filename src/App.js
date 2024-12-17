@@ -6,6 +6,7 @@ import Result from './components/Result';
 import SampleImages from './components/SampleImages';
 import Loader from './components/Loader';
 import BackgroundMap from './components/BackgroundMap';
+import classes from './components/classes'; // Import the class label dictionary
 import './App.css';
 import './components/ClickEffect.css';
 
@@ -56,7 +57,6 @@ function App() {
     const formData = new FormData();
     formData.append('image', selectedFile);
 
-    // Update the fetch URL to the new backend IP and port
     fetch('http://21.142.19.87:5000/classify', {
       method: 'POST',
       body: formData,
@@ -76,8 +76,9 @@ function App() {
           alert('Error from server: ' + data.error);
           setResult(null);
         } else {
+          const signName = classes[data.pred_class]; // Map pred_class to sign name
           setResult({
-            label: `Predicted class: ${data.pred_class}`,
+            label: `The sign is: ${signName}`, // Display resolved sign name
             SemanticImage: data.sem_image_url,
             IlluImage: data.illu_image_url,
           });

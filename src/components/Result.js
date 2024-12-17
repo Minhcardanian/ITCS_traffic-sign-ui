@@ -1,10 +1,12 @@
-// src/components/Result.js
 import React from 'react';
 import './Result.css';
 
 function Result({ result }) {
   // Show placeholder if no result or incomplete data is present
   const isResultAvailable = result && result.label;
+
+  // Clean up label to remove redundant phrases
+  const cleanLabel = (label) => label.replace('The sign is: ', '');
 
   return (
     <div className="result">
@@ -39,9 +41,9 @@ function Result({ result }) {
             )}
           </div>
 
-          {/* Label Section: Properly placed below the images */}
+          {/* Label Section: Cleaned label below the images */}
           <div className="result-label">
-            <p>The sign is: {result.label}</p>
+            <p>The sign is: {cleanLabel(result.label)}</p>
           </div>
         </div>
       ) : (
