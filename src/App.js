@@ -10,7 +10,7 @@ import './App.css';
 import './components/ClickEffect.css';
 
 function App() {
-  const [file, setFile] = useState(null);          // URL for preview
+  const [file, setFile] = useState(null); // URL for preview
   const [selectedFile, setSelectedFile] = useState(null); // Actual file object
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -57,9 +57,12 @@ function App() {
     formData.append('image', selectedFile);
 
     // Update the fetch URL to the new backend IP and port
-    fetch('http://100.95.131.112:5000/classify', {
+    fetch('http://21.142.19.87:5000/classify', {
       method: 'POST',
-      body: formData
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -145,11 +148,7 @@ function App() {
 
         {/* Result Section */}
         <div className="result-section" data-title="Result">
-          {loading ? (
-            <Loader />
-          ) : (
-            <Result result={result} />
-          )}
+          {loading ? <Loader /> : <Result result={result} />}
         </div>
       </div>
     </div>
