@@ -3,16 +3,18 @@ import React from 'react';
 import './Result.css';
 
 function Result({ result }) {
-  // If `result` is null or undefined, show the placeholder.
-  // If `result` has no label, SemanticImage, or IlluImage, also show the placeholder.
-  // Otherwise, display the contents.
+  // Show placeholder if no result or incomplete data is present
+  const isResultAvailable = result && result.label;
+
   return (
     <div className="result">
       <h2>Result</h2>
-      {result && result.label ? (
+
+      {isResultAvailable ? (
+        // Display result details when valid result data exists
         <div className="result-details">
-          <p className="result-label">{result.label}</p>
           <div className="result-images">
+            {/* Semantic Image Section */}
             {result.SemanticImage && (
               <div className="result-image-wrapper">
                 <img
@@ -23,6 +25,8 @@ function Result({ result }) {
                 <p>Semantic Image</p>
               </div>
             )}
+
+            {/* Illustration Image Section */}
             {result.IlluImage && (
               <div className="result-image-wrapper">
                 <img
@@ -34,8 +38,14 @@ function Result({ result }) {
               </div>
             )}
           </div>
+
+          {/* Label Section: Properly placed below the images */}
+          <div className="result-label">
+            <p>The sign is: {result.label}</p>
+          </div>
         </div>
       ) : (
+        // Placeholder when no valid result exists
         <div className="result-placeholder">
           <p>Result will be displayed here</p>
         </div>

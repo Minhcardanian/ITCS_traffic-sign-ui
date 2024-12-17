@@ -40,18 +40,9 @@
 .result-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px; /* Add spacing between sections */
   align-items: center;
-  padding: 10px; /* Add padding for spacing */
-}
-
-/* Label Text */
-.result-label {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px; /* Add spacing below label */
+  padding: 10px;
 }
 
 /* Result Images Layout */
@@ -60,13 +51,14 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px; /* Space below images */
 }
 
 .result-image-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 45%;
+  max-width: 45%; /* Limit width of each image */
 }
 
 .result-image {
@@ -76,13 +68,13 @@
   margin-bottom: 5px;
 }
 
-/* Result Text */
-.result-text {
+/* Label Section */
+.result-label {
   font-size: 1.2rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px; /* Space between images and label */
+  text-align: center;
 }
 
 /* Responsive Design */
@@ -97,16 +89,16 @@
     font-size: 1.6rem;
   }
 
-  .result-text {
-    font-size: 1.1rem;
+  .result-images {
+    gap: 15px;
   }
 
   .result-label {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .result-image-wrapper {
-    max-width: 70%; /* Adjust image width for tablets */
+    max-width: 70%; /* Adjust image width */
   }
 }
 
@@ -120,19 +112,16 @@
     font-size: 1.4rem;
   }
 
-  .result-text {
-    font-size: 1rem;
+  .result-images {
+    gap: 10px; /* Smaller gap for mobile */
   }
 
   .result-label {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 5px; /* Adjust spacing for small screens */
   }
 
   .result-image-wrapper {
-    max-width: 100%; /* Full width for mobile */
-  }
-
-  .result-images {
-    gap: 10px; /* Reduce gap for smaller screens */
+    max-width: 100%; /* Full width for small devices */
   }
 }
